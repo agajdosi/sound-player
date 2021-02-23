@@ -9,28 +9,25 @@ def Play(file):
   sound = AudioSegment.from_file(file, format="wav")
   play(sound)
 
-def Restart():
+def Update():
+  print("Going to update!")
+  g = git.cmd.Git(".")
+  g.pull()
   print("Going to restart!")
   os.execv(sys.executable, ['python'] + sys.argv)
 
-def Update():
-  g = git.cmd.Git(".")
-  g.pull()
-
 sounds = [
-  ["2.wav", "22", "56", "00"],
-  ["2.wav", "22", "57", "15"],
-  ["2.wav", "22", "57", "30"],
-  ["2.wav", "22", "57", "45"],
+  ["2.wav", 22, 56, 00],
+  ["2.wav", 22, 57, 15],
+  ["2.wav", 22, 57, 30],
+  ["2.wav", 22, 57, 45],
 ]
 
 sched = BlockingScheduler()
-sched.add_job(Restart, 'cron', minute="26")
+sched.add_job(Update, 'cron', hour=4, minute="26")
 
 for sound in sounds:
   #sched.add_job(Play, 'cron', args=[sound[0]], hour=sound[1], minuted=sound[2], second=sound[3])
   sched.add_job(Play, 'cron', args=[sound[0]], second=sound[3])
-
-Update()
 
 sched.start()
