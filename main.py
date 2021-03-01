@@ -24,7 +24,7 @@ sounds = [
 ]
 
 sched = BlockingScheduler()
-sched.add_job(Update, 'cron', hour=4, minute="26")
+sched.add_job(Update, 'cron', hour=11, minute="35")
 
 for sound in sounds:
   #sched.add_job(Play, 'cron', args=[sound[0]], hour=sound[1], minuted=sound[2], second=sound[3])
