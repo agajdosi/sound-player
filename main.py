@@ -5,8 +5,8 @@ from apscheduler.schedulers.background import BlockingScheduler
 import git 
 
 
-def Play(file):
-  sound = AudioSegment.from_file(file, format="wav")
+def Play(file, filetype):
+  sound = AudioSegment.from_file(file, format=filetype)
   play(sound)
 
 def Update():
@@ -17,17 +17,15 @@ def Update():
   os.execv(sys.executable, ['python'] + sys.argv)
 
 sounds = [
-  ["1.wav", 22, 56, 00],
-  ["1.wav", 22, 57, 15],
-  ["1.wav", 22, 57, 30],
-  ["1.wav", 22, 57, 45],
+  ["1.wav", "wav", 22, 56, 00],
+  ["slogan1.mp3", "mp3", 22, 57, 15],
+  ["slogan2.mp3", "mp3", 22, 57, 45],
 ]
 
 sched = BlockingScheduler()
 sched.add_job(Update, 'cron', hour=4, minute="35")
 
 for sound in sounds:
-  #sched.add_job(Play, 'cron', args=[sound[0]], hour=sound[1], minuted=sound[2], second=sound[3])
-  sched.add_job(Play, 'cron', args=[sound[0]], second=sound[3])
+  sched.add_job(Play, 'cron', args=[sound[0], sound[1]], second=sound[4])
 
 sched.start()
