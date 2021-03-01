@@ -18,8 +18,8 @@ def Update():
 
 sounds = [
   ["1.wav", "wav", 22, 56, 00],
-  ["slogan1.mp3", "mp3", 22, 57, 16],
-  ["slogan2.mp3", "mp3", 22, 57, 46],
+  ["slogan1.mp3", "mp3", 22, 57, 15],
+  ["slogan2.mp3", "mp3", 22, 57, 45],
 ]
 
 sched = BlockingScheduler()
