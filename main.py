@@ -17,14 +17,14 @@ def Update():
   os.execv(sys.executable, ['python'] + sys.argv)
 
 sounds = [
-  ["2.wav", 22, 56, 00],
-  ["2.wav", 22, 57, 15],
-  ["2.wav", 22, 57, 30],
-  ["2.wav", 22, 57, 45],
+  ["1.wav", 22, 56, 00],
+  ["1.wav", 22, 57, 15],
+  ["1.wav", 22, 57, 30],
+  ["1.wav", 22, 57, 45],
 ]
 
 sched = BlockingScheduler()
-sched.add_job(Update, 'cron', hour=11, minute="35")
+sched.add_job(Update, 'cron', hour=4, minute="35")
 
 for sound in sounds:
   #sched.add_job(Play, 'cron', args=[sound[0]], hour=sound[1], minuted=sound[2], second=sound[3])
