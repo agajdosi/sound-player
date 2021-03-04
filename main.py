@@ -73,4 +73,6 @@ sched = BlockingScheduler()
 for sound in sounds:
   sched.add_job(Play, 'cron', args=[sound[0], sound[1]], hour=sound[2], minute=sound[3])
 
+Play("jehumoreskouprobyznys", "mp3")
+
 sched.start()
