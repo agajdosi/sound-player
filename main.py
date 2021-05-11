@@ -39,8 +39,8 @@ sounds = [
   ["monopolybrnopraha.mp3", "mp3", 11, 40, 00],
 
   ["kdysankovalydeti.mp3", "mp3", 12, 00, 00],
-  ["chudibranivesvobode.mp3", "mp3", 12, 40, 00],
-  ["14.mp3", "mp3", 12, 00, 00],
+  ["chudibranivesvobode.mp3", "mp3", 12, 20, 00],
+  ["14.mp3", "mp3", 12, 40, 00],
 
   ["monopolybrnopraha.mp3", "mp3", 13, 00, 00],
   ["bohativsechzemizbavmesekotvy.mp3", "mp3", 13, 20, 00],
