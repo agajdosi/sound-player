@@ -1,21 +1,11 @@
-import os, sys
 from pydub import AudioSegment
 from pydub.playback import play
 from apscheduler.schedulers.background import BlockingScheduler
-import git 
-
 
 def Play(file, filetype):
   file = "audio/" + file
   sound = AudioSegment.from_file(file, format=filetype)
   play(sound)
-
-def Update():
-  print("Going to update!")
-  g = git.cmd.Git(".")
-  g.pull()
-  print("Going to restart!")
-  os.execv(sys.executable, ['python'] + sys.argv)
 
 sounds = [
   ["chudibranivesvobode.mp3", "mp3", 7, 00, 00],
@@ -68,7 +58,6 @@ sounds = [
 ]
 
 sched = BlockingScheduler()
-#sched.add_job(Update, 'cron', hour=4, minute=11)
 
 for sound in sounds:
   sched.add_job(Play, 'cron', args=[sound[0], sound[1]], hour=sound[2], minute=sound[3])
